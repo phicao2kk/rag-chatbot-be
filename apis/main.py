@@ -1,9 +1,11 @@
 from fastapi import APIRouter
 from apis import core
-from core.config import settings
+from apis.routes import auth, feedback
 
 router = APIRouter()
 router.include_router(core.router)
+router.include_router(auth.router)
+router.include_router(feedback.router)
 
 """
 add local api
