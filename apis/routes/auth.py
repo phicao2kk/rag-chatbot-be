@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from utils import jwt_encode
-from core.config import settings
 
+from core.config import settings
 from core.models import auth
+from utils import jwt_encode
 
 router = APIRouter(prefix="/auth", tags=["core"])
 

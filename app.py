@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
-from core.config import settings
 from starlette.middleware.cors import CORSMiddleware
 
 # router
 from apis import main
+from core.config import settings
+
 
 def custom_generate_id_unique(route: APIRoute) -> str:
     return f"{route.tags[0]}-{route.name}"
