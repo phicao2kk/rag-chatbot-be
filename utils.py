@@ -1,7 +1,9 @@
-from typing import Any
-import jwt
 import datetime
 from concurrent.futures import ProcessPoolExecutor
+from typing import Any
+
+import jwt
+
 
 def get_workspace_path():
     import os
@@ -20,12 +22,12 @@ def jwt_encode(payload: dict[str,Any], settings) -> dict[str, str]:
 
     accesstoken_payload = {
         **payload,
-        'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=accesstoken_expire)
+        'exp': datetime.datetime.now(datetime.UTC) + datetime.timedelta(seconds=accesstoken_expire)
     }
 
     refreshtoken_payload = {
         **payload,
-        'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=refrentoken_expire)
+        'exp': datetime.datetime.now(datetime.UTC) + datetime.timedelta(seconds=refrentoken_expire)
     }
 
     collections = [
@@ -43,4 +45,3 @@ def jwt_encode(payload: dict[str,Any], settings) -> dict[str, str]:
         'access_token': results[0][0],
         'refresh_token': results[1][0]
     }
-    

@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from core.models import feedback
 
 router = APIRouter(prefix="/feedback", tags=['feedback'])
@@ -7,6 +8,6 @@ router = APIRouter(prefix="/feedback", tags=['feedback'])
 def submit(
     payload: feedback.FeedbackSubmit
 ):
-    # store payload onto mysql 
-    
+    # store payload onto mysql
+
     return payload
