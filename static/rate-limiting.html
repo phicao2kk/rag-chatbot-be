@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>429 Too Many Requests | Đại học Phạm Văn Đồng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --danger-border: #fecaca;
+            --radius: 16px;
+            --shadow: 0 10px 40px -12px rgba(15, 23, 42, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 1.75rem;
+            box-shadow: var(--shadow);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--danger-bg);
+            color: var(--danger);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.4rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid var(--danger-border);
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+        }
+
+        .status-badge span {
+            font-size: 1.1rem;
+        }
+
+        h1 {
+            font-size: 1.65rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.6rem;
+            color: var(--text);
+        }
+
+        .message {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .explain {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1rem 1.15rem;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .explain strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .actions {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: #f1f5f9;
+            color: var(--text);
+            transform: none;
+        }
+
+        .hint {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        footer strong {
+            color: #64748b;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 1.75rem 1.25rem;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="logo" src="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-Dai-Hoc-Pham-Van-Dong-PDU.png"
+            alt="Logo Đại học Phạm Văn Đồng" />
+
+        <div class="card">
+            <div class="status-badge">
+                <span>⚠️</span> 429 Too Many Requests
+            </div>
+
+            <h1>Bạn đang bị giới hạn tốc độ</h1>
+
+            <p class="message">
+                Hệ thống tạm thời chặn request của bạn vì gửi quá nhiều trong thời gian ngắn.
+            </p>
+
+            <div class="explain">
+                <strong>Rate Limiting</strong> là cơ chế bảo vệ server khỏi spam và quá tải.
+                Khi vượt quá giới hạn cho phép, server sẽ trả về mã lỗi
+                <strong>429</strong> và yêu cầu bạn đợi một lúc trước khi thử lại.
+            </div>
+
+            <div class="actions">
+                <button class="btn" onclick="location.reload()">
+                    Thử lại
+                </button>
+                <a href="/" class="btn btn-outline">
+                    Quay về trang chủ
+                </a>
+            </div>
+
+            <p class="hint">
+                Vui lòng đợi vài giây rồi thử lại. Nếu vẫn gặp lỗi, hãy liên hệ hỗ trợ.
+            </p>
+        </div>
+
+        <footer>
+            <strong>Đại học Phạm Văn Đồng</strong> · Khoa Công nghệ Thông tin
+        </footer>
+    </div>
+</body>
+
+</html>
